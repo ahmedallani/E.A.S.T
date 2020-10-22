@@ -2,7 +2,18 @@ const initState = {
   user: {},
   page: "Home",
 };
-
+const pages={
+  Home:{path:"/"},
+  Login:{path:"/login"}
+}
+const testPath = () => {
+  let path=window.location.pathname
+  if (path==="/login"){
+    return "Login"
+  } else {
+    return "Home"
+  }
+}
 const reducers = {
   updatedata: (state, action) => {
     return {
@@ -14,6 +25,19 @@ const reducers = {
     return {
       ...state,
       [action.state]: action.value,
+    };
+  },
+  updatePage: (state, action) => {
+    window.history.pushState('', '', pages[action.value].path);
+    return {
+      ...state,
+      page: action.value,
+    };
+  },
+  updateComponent: (state) => {
+    return {
+      ...state,
+      page: testPath(),
     };
   },
 };

@@ -24,6 +24,9 @@ class App extends React.Component {
     super(props);
     this.state = {};
   }
+  componentWillMount(){
+    this.props.updateComponent()
+  }
   render() {
     return (
       <div>
@@ -57,8 +60,16 @@ const mapStateToProps = (state, ownProps) => {
     page: state.page,
   };
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateComponent: () =>
+      dispatch({
+        type: "updateComponent"
+      }),
+  };
+};
 const store = createStore(rootReducer);
-const AppState=connect( mapStateToProps )(App)
+const AppState=connect( mapStateToProps,mapDispatchToProps )(App)
 ReactDOM.render(
   <Provider store={store}>
     <AppState />

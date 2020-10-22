@@ -6,8 +6,9 @@ class Navbar extends React.Component {
     super(props);
     this.state = {};
   }
-  changePage(page) {
+  changePage(evt,page) {
     console.log(page);
+    evt.preventDefault();
     this.props.updatePage(page);
   }
   render() {
@@ -30,14 +31,14 @@ class Navbar extends React.Component {
                 <nav className="ashade-nav">
                   <ul className="main-menu">
                     <li className="menu-item-has-children">
-                      <button onClick={() => this.changePage("Home")}>
-                        Home2
-                      </button>
+                      <a onClick={(evt) => this.changePage(evt,"Home")}>
+                        Home
+                      </a>
                     </li>
                     <li className="menu-item-has-children">
-                      <button onClick={() => this.changePage("Login")}>
+                      <a onClick={(evt) => this.changePage(evt,"Login")}>
                         Login
-                      </button>
+                      </a>
                     </li>
                     <li className="menu-item-has-children">
                       <a href="#">Showcase</a>
@@ -200,9 +201,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updatePage: (value) =>
       dispatch({
-        type: "updateState",
-        state: "page",
-        value,
+        type: "updatePage",
+        value
       }),
   };
 };
