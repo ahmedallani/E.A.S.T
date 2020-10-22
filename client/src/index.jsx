@@ -31,6 +31,9 @@ class App extends React.Component {
     return (
       <div>
         <Navbar />
+        <aside id="ashade-aside">
+          <Asidebar />
+        </aside>
         {this.props.page=="Home" && <Home />}
         {this.props.page=="Login" && <Login />}
         {/* <Router>
