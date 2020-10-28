@@ -45,7 +45,7 @@ return <div className="ashade-contact-form__submit">
           
    
       <div className="ashade-row ashade-row-fullheight exclude-header" style={{position: "relative", top: "80px",display:"grid"}} id="serviceProfile">
-      <img className="avatar" src="https://i.imgur.com/pZVRyFK.png" alt="Joshuasm32" /> 
+      <img className="avatar" src={this.props.user.imgsrc} alt="Joshuasm32" /> 
         <div className="ashade-col col-6" id="profileInfoCard">
           <h2>
             <span className="profileinfo">Client Name</span>
@@ -96,7 +96,6 @@ return <div className="ashade-contact-form__submit">
                              <input type="text" name="adress" className="form-control" placeholder="Edit your Adress" value={this.props.user.Email}/></div>
                             </div>
                              <div className="ashade-col col-6 align-bottom hide-on-tablet-port hide-on-phone">
-             
 </div>
 </div>
 </div>

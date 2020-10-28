@@ -8,8 +8,10 @@ import Footer from "./components/footer.jsx"
 import JobsPosted from "./components/client/jobsposted.jsx"
 import Jobsapplied from "./components/serviceprovider/Jobsapplied.jsx"
 import PostJob from "./components/client/postjob.jsx"
-import Signup from "./components/Signup.jsx"
-import Login from "./components/login.jsx"
+import ClientSignup from "./components/client/clientSignup.jsx"
+import FreelancerSignup from "./components/serviceprovider/freelancerSignup.jsx"
+import ClientLogin from "./components/client/clientLogin.jsx"
+import FreelancerLogin from "./components/serviceprovider/freelancerlogin.jsx"
 import About from "./components/about.jsx"
 import ProfileSP from "./components/serviceprovider/serviceProviderprofil/serviceproviderprofil.jsx"
 import ClientProfile from "./components/client/clientprofile/clientprofil.jsx"
@@ -55,10 +57,14 @@ class App extends React.Component {
       this.setState({page:<Market ChangePage={this.ChangePage}/>})
     }else if(pathname==="/JobDetails"){
       this.setState({page:<JobDetails jobDetails={data} ChangePage={this.ChangePage}/>})
-    }else if(pathname==="/Signup"){
-      this.setState({page:<Signup ChangePage={this.ChangePage}/>})
-    }else if(pathname==="/Login"){
-      this.setState({page:<Login ChangeUser={this.ChangeUser} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/ClientSignup"){
+      this.setState({page:<ClientSignup ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/FreelancerSignup"){
+      this.setState({page:<FreelancerSignup ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/ClientLogin"){
+      this.setState({page:<ClientLogin ChangeUser={this.ChangeUser} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/FreelancerLogin"){
+      this.setState({page:<FreelancerLogin ChangeUser={this.ChangeUser} ChangePage={this.ChangePage}/>})
     }else if(pathname==="/profileEdit"){
       this.setState({page:<EditClientProfile/>})
     }else if(pathname==="/SeeAppliers"){

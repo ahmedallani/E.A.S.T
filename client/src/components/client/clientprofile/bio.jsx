@@ -36,7 +36,7 @@ handleChange(e) {
           
    
           <div className="ashade-row ashade-row-fullheight exclude-header" style={{position: "relative", top: "80px",display:"grid"}} id="serviceProfile">
-          <img className="avatar" src="https://i.imgur.com/pZVRyFK.png" alt="Joshuasm32" /> 
+          <img className="avatar" src={this.props.user.imgsrc} alt="Joshuasm32" /> 
             <div className="ashade-col col-6" id="profileInfoCard">
               <h2>
                 <span className="profileinfo">Client Name</span>
