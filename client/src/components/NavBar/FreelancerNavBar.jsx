@@ -34,7 +34,10 @@ if(e.target.id=="Home"){
     this.props.ChangeRoute("/")
     window.history.pushState({},null,"/")
     window.location.reload();
-}
+}if(e.target.id=='Contact'){
+    this.props.ChangeRoute("/Contact");
+    window.history.pushState({}, null, "/Contact");
+  }
     }
     render() {
       return <div>
@@ -59,8 +62,10 @@ if(e.target.id=="Home"){
                          <ul className="sub-menu">
                                     <li><a  id="offers" onClick={this.handleclick}>Offers</a></li>
                                     <li><a  id="AppliedJobs" onClick={this.handleclick}>AppliedJobs</a></li>
+                                    <li><a  id="Contact" onClick={this.handleclick}>Contact</a></li>
                           </ul>
                         </li>
+                      
 					<li className="menu-item-has-children">
                             <a href="#">Account</a>
                             <ul className="sub-menu">

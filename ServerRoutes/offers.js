@@ -5,7 +5,6 @@ const Jobs = require("../Data-Base/jobs/jobs");
 
 
 router.get('/', function(req, res, next) {
-    console.log("resived")
     Jobs.retrieveJobs((result, error) => {
         if(result) {
           res.send(result)
@@ -15,5 +14,10 @@ router.get('/', function(req, res, next) {
       })
       });
 
+      router.post('/deletepost', function(req, res, next) {
+        console.log(req.body)
+        Jobs.deletepost(req.body)
+        
+          });
      
  module.exports=router

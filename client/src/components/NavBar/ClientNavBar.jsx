@@ -44,6 +44,9 @@ class ClientNavbar extends React.Component {
     }if(e.target.id=='PostJob'){
       this.props.ChangeRoute("/PostJob");
       window.history.pushState({}, null, "/offers/postJob");
+    }if(e.target.id=='Contact'){
+      this.props.ChangeRoute("/Contact");
+      window.history.pushState({}, null, "/Contact");
     }
   }
   render() {
@@ -81,6 +84,11 @@ class ClientNavbar extends React.Component {
                       <li>
                         <a id="PostedJobs" onClick={this.handleclick}>
                           PostedJobs
+                        </a>
+                      </li>
+                      <li>
+                        <a id="Contact" onClick={this.handleclick}>
+                          Contact
                         </a>
                       </li>
                     </ul>

@@ -25,7 +25,6 @@ router.post('/Login', function(req, res, next) {
              /*Signup Client*/
 
 router.post('/Signup', function(req, res, next) {
-  console.log(req.body)
 if(Object.keys(req.body).length){
   Client.SignupClient(req.body,(result,error)=>{
     if(error){
@@ -47,7 +46,6 @@ if(Object.keys(req.body).length){
            /*Post Job*/
 
 router.post("/postJob", (req, res) => {
-  console.log(req.body);
     if(Object.keys(req.body).length){
       jobs.saveJobs(req.body, (result, error)=>{
         if(result){
@@ -60,7 +58,6 @@ router.post("/postJob", (req, res) => {
   });
        /*Retrive Client Posted Job*/
        router.post("/PostedJob", (req, res) => {
-console.log(req.body)
         jobs.retriveClientPosts(req.body,(result)=>{
 res.send(result)
         })
@@ -68,7 +65,6 @@ res.send(result)
 
          /*Check Appliers*/
      router.post("/appliers", (req, res) => {
-console.log(req.body)
 application.RetriveAppliers(req.body,(result=>{
 res.send(result)
 }))

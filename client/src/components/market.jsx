@@ -120,7 +120,7 @@ window.history.pushState({},null,"/Offers/JobDetails")
                                 </div>
                                 {/* <!-- .ashade-service-card__head --> */}
                                 <div className="ashade-service-card__content">
-                                    <p>Budget :{elem.budget}</p>
+                                    <p>Budget : {elem.budget} Tnd</p>
                                     <div className="align-right">
                                         <a href="#" id={elem.id} onClick={this.readmore}>Read More</a>
                                     </div>

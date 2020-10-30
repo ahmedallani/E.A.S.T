@@ -18,6 +18,7 @@ import ClientProfile from "./components/client/clientprofile/clientprofil.jsx"
 import JobDetails from "./components/jobdetails.jsx"
 import EditClientProfile from "./components/client/clientprofile/editClientProfile.jsx"
 import SeeAppliers from "./components/client/seeappliers.jsx"
+import Contact from "./components/contact.jsx"
               ////Redux///
 import {Provider} from "react-redux"
 import {createStore} from "redux"
@@ -38,7 +39,7 @@ class App extends React.Component {
  this.setState({user})
      }
      
-    ChangePage(pathname,data,profile){
+    ChangePage(pathname,data,profile,userid){
      if(pathname==="/"){
       this.setState({page:<Home/>})
     }else if(pathname==="/About"){
@@ -46,7 +47,7 @@ class App extends React.Component {
     }else if(pathname==="/profile"){
       this.setState({page:<ClientProfile/>})
     }else if(pathname==="/Profile"){ //UpperCase P
-      this.setState({page:<ProfileSP jobDetails={data} selectedprofile={profile} typeuser={this.state.user}/>})
+      this.setState({page:<ProfileSP jobDetails={data} selectedprofile={profile} typeuser={this.state.user} userid={userid} ChangePage={this.ChangePage}/>})
     }else if(pathname==="/JobsPosted"){
       this.setState({page:<JobsPosted ChangePage={this.ChangePage}/>})
     }else if(pathname==="/Jobsapplied"){
@@ -60,7 +61,7 @@ class App extends React.Component {
     }else if(pathname==="/ClientSignup"){
       this.setState({page:<ClientSignup ChangePage={this.ChangePage}/>})
     }else if(pathname==="/FreelancerSignup"){
-      this.setState({page:<FreelancerSignup ChangePage={this.ChangePage}/>})
+      this.setState({page:<FreelancerSignup ChangePage={this.ChangePage} />})
     }else if(pathname==="/ClientLogin"){
       this.setState({page:<ClientLogin ChangeUser={this.ChangeUser} ChangePage={this.ChangePage}/>})
     }else if(pathname==="/FreelancerLogin"){
@@ -69,6 +70,8 @@ class App extends React.Component {
       this.setState({page:<EditClientProfile/>})
     }else if(pathname==="/SeeAppliers"){
       this.setState({page:<SeeAppliers appliers={data} selectedprofile={profile} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/Contact"){
+      this.setState({page:<Contact appliers={data} selectedprofile={profile} ChangePage={this.ChangePage}/>})
     }
     }
 

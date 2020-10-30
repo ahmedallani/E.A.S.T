@@ -16,8 +16,15 @@ class JobDetails extends React.Component {
         this.apply=this.apply.bind(this)
         this.retriveAppliers=this.retriveAppliers.bind(this)
         this.checkprofile=this.checkprofile.bind(this)
+        this.deletepost=this.deletepost.bind(this)
     }
-
+  deletepost(){
+    axios({
+      url: '/api/offers/deletepost',
+      method: 'post',
+      data:{postid:this.props.jobDetails.id}
+    })
+}
 checkprofile(e){
   console.log(e.target.id)
 
@@ -32,8 +39,7 @@ if(e.target.id==elem.id){
   setTimeout(() => {
     this.props.ChangePage("/Profile",this.props.jobDetails,selectedprofile)
     window.history.pushState({},null,"/profile")
-  }, 300);
-
+  }, 400);
 }
 
   retriveAppliers(){
@@ -148,8 +154,10 @@ this.setState({apllication:true})
      <button id='modalbutton' onClick={this.apply}>Apply</button>
     </div>
   </div>
-</div>:null}
-{this.state.Appliers? <div className="modal">
+</div>
+:null}
+{this.state.Appliers?
+<div><div className="modal">
   <input id="modal__trigger" type="checkbox" />
   <label htmlFor="modal__trigger" onClick={this.retriveAppliers}>See Applies</label>
   <div className="modal__overlay">
@@ -163,13 +171,16 @@ return <div className="listitem">
 <button className="hirebutton" >hire</button>
 <button className="hirebutton" id={elem.id} onClick={this.checkprofile}>Check Profile</button>
 </div>   
+
   })}
    
 </div>
 
     </div>
   </div>
-</div>:null}
+</div>
+<button onClick={this.deletepost} id="deletepostbtn">Delete Post</button>
+</div> :null}
                  <br/> 
                  <br/>
 <Footer/>

@@ -19,9 +19,14 @@ const retrieveJobs = (callback) => {
 const retriveClientPosts = (req,callback) => {
   var query = `Select * from Jobs where client_id=${req.userid}`;
   connection.query(query, (error, results, fields) => {
-      // callback(results, error)
      callback(results)
   });
 }
-
-module.exports = { saveJobs,retrieveJobs,retriveClientPosts };
+const deletepost=(req,callback)=>{
+  var query = `DELETE from Jobs where id=${req.postid}`;
+  connection.query(query, (error, results, fields) => {
+      console.log(results)
+    //  callback(results)
+  });
+}
+module.exports = { saveJobs,retrieveJobs,retriveClientPosts,deletepost };

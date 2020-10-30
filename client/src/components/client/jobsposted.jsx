@@ -63,7 +63,7 @@ componentDidMount(){
                                     return   <div className="ashade-service-card" key={index}>
                                     <div className="ashade-service-card__head">
                                       <div className="ashade-service-card__image">
-                                        <img src={elem.imgUrl}/>
+                                        <img src={elem.imgUrl} id="fixmarketimg"/>
                                       </div>
                                       <div className="ashade-service-card__label">
                                         <h4>

@@ -1,4 +1,3 @@
-  
 import React from "react";
 import Footer from "../footer.jsx";
 import axios from "axios";
@@ -22,7 +21,7 @@ class SeeAppliers extends React.Component {
   }
     })
     setTimeout(() => {
-      this.props.ChangePage("/Profile",null,selectedprofile)
+      this.props.ChangePage("/Profile",null,selectedprofile,this.props.user.id)
       window.history.pushState({},null,"/profile")
     }, 300);
   
@@ -37,7 +36,7 @@ class SeeAppliers extends React.Component {
 						</div>
          <div id="appliersList">    
          {this.props.appliers.map((elem,index)=>{
-             return <div id="applierCard">
+             return <div id="applierCard" key={index}>
  <div id="shapeApplier">
          <div id="applierimg"></div>
  </div>
@@ -45,12 +44,9 @@ class SeeAppliers extends React.Component {
  <h3 id="appliercardtext">{elem.Field}</h3>
          <p id="CardContent">{elem.content}</p>
 </div>
-         })}
-             
+         })}    
      </div>
     </div>
-     
-
     );
   }
 }

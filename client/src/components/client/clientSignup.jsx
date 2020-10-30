@@ -35,8 +35,8 @@ class ClientSignup extends React.Component {
         .post("/api/Clients/Signup", clientData)
         .then((data) => {
           console.log(data);
-         this.props.ChangePage("/Login")
-         window.history.pushState({},null,"/Login")
+         this.props.ChangePage("/ClientLogin")
+         window.history.pushState({},null,"/ClientLogin")
         })
         .catch((e) => {
           console.log(e);
