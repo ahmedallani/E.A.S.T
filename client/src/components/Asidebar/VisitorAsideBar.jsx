@@ -15,12 +15,22 @@ if(e.target.id=="Home"){
 }if(e.target.id=="offers"){
     this.props.ChangeRoute("/Market")
     window.history.pushState({},null,"/Offers")
-}if(e.target.id=="Signup"){
-    this.props.ChangeRoute("/Signup")
-    window.history.pushState({},null,"/Signup")
-}if(e.target.id=="Login"){
-    this.props.ChangeRoute("/Login")
-    window.history.pushState({},null,"/Login")
+}if(e.target.id=="Client-Login"){
+    this.props.ChangeRoute("/ClientLogin")
+    window.history.pushState({},null,"/ClientLogin")
+    window.location.reload();
+}if(e.target.id=="Freelancer-Login"){
+    this.props.ChangeRoute("/FreelancerLogin")
+    window.history.pushState({},null,"/FreelancerLogin")
+    window.location.reload();
+}if(e.target.id=="Client-Signup"){
+    this.props.ChangeRoute("/ClientSignup")
+    window.history.pushState({},null,"/ClientSignup")
+    window.location.reload();
+}if(e.target.id=="Freelancer-Signup"){
+    this.props.ChangeRoute("/FreelancerSignup")
+    window.history.pushState({},null,"/FreelancerSignup")
+    window.location.reload();
 }
     }
     render() {
@@ -28,18 +38,23 @@ if(e.target.id=="Home"){
     <div id="AsideBar">
           <div id="Home" onClick={this.handleclick}>Home</div>
          <br></br>
-         <br></br>
           <div>JobOffers</div>
           <br></br>
           <div id="offers" onClick={this.handleclick} className="AsideBarAppliedJobs">Offers</div>
          <br></br>
           <div id="About" onClick={this.handleclick}>About</div>
           <br></br>
-         <br></br>
           <div id="Login" onClick={this.handleclick}>Login</div>
           <br></br>
-         <br></br>
+          <div className="AsideBarAppliedJobs" id="Client-Login" onClick={this.handleclick}>Client-Login</div>
+          <br></br>
+          <div className="AsideBarAppliedJobs" id="Freelancer-Login" onClick={this.handleclick}>Freelancer-Login</div>
+          <br></br>
           <div id="Signup" onClick={this.handleclick}>Signup</div>
+          <br></br>
+          <div className="AsideBarAppliedJobs" id="Client-Signup" onClick={this.handleclick}>Client-Signup</div>
+          <br></br>
+          <div className="AsideBarAppliedJobs" id="Freelancer-Signup" onClick={this.handleclick}>Freelancer-Signup</div>
     </div>
       </div>
     }

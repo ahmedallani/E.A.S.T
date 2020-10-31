@@ -35,6 +35,7 @@ class Login extends React.Component {
                         if(data.data.userData.type=="freelancer"){
                             this.props.ChangeUser('freelancer')
                             this.props.ChangePage("/")
+                            window.history.pushState({},null,"/")
                         }
                     }
     
@@ -55,14 +56,14 @@ class Login extends React.Component {
                         this.props.update(data.data.userData)
 
                         if(data.data.userData.type=="client"){
-                             this.props.ChangeUser('client')
-                            this.props.ChangePage("/")
+                        this.props.ChangeUser('client')
+                        this.props.ChangePage("/")
+                        window.history.pushState({},null,"/")
                         }
                     }
-
                 }).catch(err => console.log(err))
              }
-            
+             event.preventDefault();
         };
 
         serviceprovider(){
@@ -72,44 +73,34 @@ class Login extends React.Component {
         client(){
          this.setState({client:true,serviceprovider:false,Registration:"Login as a client",Email:"",Password:""})
         }
+
     render() {
       return <div>
-          <div className="col-md-6 signup-form-1">
-        
-        <h3 id="h3login">{this.state.Registration}</h3>
-        <button className="SwitchConsumer" id="switchbtn1" onClick={this.serviceprovider}>Serviceprovider</button> <button className="SwitchConsumer" id="switchbtn2" onClick={this.client}>Client</button>
-        {this.state.serviceprovider?
-        <div>
-        <div className="form-group">
-            <input type="text" className="form-control" placeholder="Your Email " onChange={event=>{this.setState({Email:event.target.value})}}/>
-        </div>
-        <div className="form-group">
-            <input type="text" className="form-control" placeholder="Your Password " onChange={event=>{this.setState({Password:event.target.value})}} />
-        </div>      
-        <div className="form-group">
-            <input type="submit" className="btnSubmit" id="btn" value="Login" onClick={this.Login}/>
-        </div>
-        <div className="form-group">
-            <a className="btnForgetPwd" id="forgetpass">Forget Password?</a>
-        </div>
-        </div>:null}
-        {this.state.client?<div>
-            <div className="form-group">
-            <input type="text" className="form-control" placeholder="Your Email " onChange={event=>{this.setState({Email:event.target.value})}}/>
-        </div>
-        <div className="form-group">
-            <input type="text" className="form-control" placeholder="Your Password " onChange={event=>{this.setState({Password:event.target.value})}}/>
-        </div>      
-        <div className="form-group">
-            <input type="submit" className="btnSubmit" id="btn" value="Login" onClick={this.Login}/>
-        </div>
-        <div className="form-group">
-            <a className="btnForgetPwd" id="forgetpass">Forget Password?</a>
-        </div>
-        </div>
-        :null}
+         <div className="container">
+<div id="login" className="signin-card loginstyle">
+  <div className="logo-image">
+  <img src="https://bootdey.com/img/Content/User_for_snippets.png" alt="Logo" title="Logo" width="138" className="loginimg"/>
+  </div>
+  <h1 className="display1 logintextcolor">Login</h1>
+ 
+  <form action="" method="" className="" role="form" onSubmit={this.Login}>
+    <div id="form-login-username" className="form-group">
+    <label for="Email" className="float-label logintextcolor" >Email</label>
+      <input id="username" className="form-control" name="Email" type="text" size="18" alt="login" onChange={event=>{this.setState({Email:event.target.value})}} required />
+      <label for="password" className="float-label logintextcolor" >Password</label>
     </div>
-        <Footer/>
+    <div id="form-login-password" className="form-group">
+      <input id="passwd" className="form-control" name="password" type="password" size="18" alt="password" onChange={event=>{this.setState({Password:event.target.value})}} required/>
+    </div>
+    <div id="form-login-remember" className="form-group">
+    </div>
+    <div>
+      <button className="btn btn-block btn-info ripple-effect" type="submit" name="Submit" alt="sign in"  style={{ background: "transparent"}}>Sign in</button>  
+	  </div>
+      </form>
+    </div>
+  
+</div>
       </div>;
     }
   }

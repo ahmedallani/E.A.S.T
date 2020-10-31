@@ -5,14 +5,16 @@ import Bio from "./bio.jsx";
 import JobOffersProf from "./jobOffers.jsx";
 import ProfileStats from "./profIStats.jsx";
 import axios from "axios";
-
+import Footer from "../../footer.jsx"
 import {connect} from "react-redux"
 class ClientProfile extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-          user: []
+          user: [],
+          
         }
+        
     }
     componentDidMount(){
       axios.get("/api/clients/clientInfo")
@@ -36,6 +38,7 @@ class ClientProfile extends React.Component {
           </div>
         </div>
       </main>
+      <Footer/>
     </div>
     }
   }

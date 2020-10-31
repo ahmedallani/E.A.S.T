@@ -30,7 +30,9 @@ if(e.target.id=="Home"){
 }if(e.target.id=="Logout"){
     this.props.ChangeRoute("/")
     window.history.pushState({},null,"/")
-    window.location.reload();
+}if(e.target.id=="Contact"){
+    this.props.ChangeRoute("/Contact")
+    window.history.pushState({},null,"/Contact")
 }
     }
     render() {
@@ -38,12 +40,13 @@ if(e.target.id=="Home"){
     <div id="AsideBar">
           <div id="Home" onClick={this.handleclick}>Home</div>
          <br></br>
-         <br></br>
           <div>JobOffers</div>
           <br></br>
           <div className="AsideBarAppliedJobs" id="offers" onClick={this.handleclick}>Offers</div>
           <br></br>
           <div className="AsideBarAppliedJobs" id="PostedJobs" onClick={this.handleclick}>Posted-Jobs</div>
+          <br></br>
+          <div className="AsideBarAppliedJobs" id="Contact" onClick={this.handleclick}>Contact</div>
 
          <br></br>
           <div>Account</div>
@@ -52,7 +55,6 @@ if(e.target.id=="Home"){
          
          <br></br>
           <div id="About" onClick={this.handleclick}>About</div>
-          <br></br>
          <br></br>
           <div id="Logout" onClick={this.handleclick}>Logout</div>
     </div>

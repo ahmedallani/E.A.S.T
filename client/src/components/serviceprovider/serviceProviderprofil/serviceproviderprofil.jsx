@@ -30,7 +30,7 @@ class ProfileSP extends React.Component {
       <main className="ashade-content-wrap">
         <div className="ashade-content-scroll">
           <div className="ashade-content">
-            <Bio />
+            <Bio typeuser={this.props.typeuser} userid={this.props.userid} ChangePage={this.props.ChangePage}/>
             <ProfileInfo />
             <Studio />
             <Feedbacks />

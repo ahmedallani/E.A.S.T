@@ -1,14 +1,6 @@
 const initState={
-  user:{ 
-    FirstName : "malek",
-    LastName : "chebil",
-    Email : "malek@gmail.com",
-    Adresse: "tunis",
-    Gender : "Male",
-    Age : 28 ,
-    City : "Tunis",
-    Feald : "Designer"
-  }
+  user:{},
+  selectedprofile:{}
 }
 
 const reducers = {
@@ -18,6 +10,19 @@ const reducers = {
             user:action.value
         }
     },
+    selectedprofile:(state,action)=>{
+      return {
+        ...state,
+        selectedprofile:action.value
+      }
+    },
+    unselect:(state,action)=>{
+      return {
+        ...state,
+        selectedprofile:{},
+        user:action.value
+      }
+    }
 
   };
 

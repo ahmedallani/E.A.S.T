@@ -22,13 +22,32 @@ const loginClient= (req,callback)=>{
 const SignupClient= (req,callback)=>{
     if(req.Password){
       var hash = bcrypt.hashSync(req.Password, salt);
-      var query=`INSERT INTO Clients (FirstName,LastName,Email,password,Gender,Age,City,Adresse) values ('${req.FirstName}','${req.LastName}','${req.Email}','${hash}','${req.Gender}',${req.Age},'${req.City}','${req.Adresse}');`
+      var query=`INSERT INTO Clients (FirstName,LastName,Email,password,Gender,Age,City,Adresse,imgsrc) values ('${req.FirstName}','${req.LastName}','${req.Email}','${hash}','${req.Gender}',${req.Age},'${req.City}','${req.Adresse}','https://bootdey.com/img/Content/User_for_snippets.png');`
       connection.query(query, function (error, results, fields) {callback(results,error)});
     }
 
 }
 
+const updateProfile = async (req, callback) => {
+  try {
+    var query = `UPDATE IGNORE Clients SET  
+    FirstName = '${req.FirstName}', 
+    LastName = '${req.LastName}', 
+    Adresse = '${req.Adresse}', 
+    Password = '${req.Password}', 
+    imgUrl = '${req.ImgUrl}' 
+    WHERE id = '${req.id}' `;
+     connection.query(query, (error, results, fields) => {
+      callback(results, error)
+    });
+  } catch (err) {
+    if (err) {
+      throw err
+    }
+  }
+}
   module.exports={
     loginClient,
     SignupClient,
+    updateProfile
   }

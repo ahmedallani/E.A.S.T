@@ -15,12 +15,6 @@ if(e.target.id=="Home"){
 }if(e.target.id=="offers"){
     this.props.ChangeRoute("/Market")
     window.history.pushState({},null,"/Offers")
-}if(e.target.id=="Signup"){
-    this.props.ChangeRoute("/Signup")
-    window.history.pushState({},null,"/Signup")
-}if(e.target.id=="Login"){
-    this.props.ChangeRoute("/Login")
-    window.history.pushState({},null,"/Login")
 }if(e.target.id=="AppliedJobs"){
     this.props.ChangeRoute("/Jobsapplied")
     window.history.pushState({},null,"/offers/AppliedJobs")
@@ -30,6 +24,10 @@ if(e.target.id=="Home"){
 }if(e.target.id=="Logout"){
     this.props.ChangeRoute("/")
     window.history.pushState({},null,"/")
+    window.location.reload();
+}if(e.target.id=="Contact"){
+    this.props.ChangeRoute("/Contact")
+    window.history.pushState({},null,"/Contact")
     window.location.reload();
 }
     }
@@ -44,6 +42,8 @@ if(e.target.id=="Home"){
           <div className="AsideBarAppliedJobs" id="offers" onClick={this.handleclick}>Offers</div>
           <br></br>
           <div className="AsideBarAppliedJobs" id="AppliedJobs" onClick={this.handleclick}>AppliedJobs</div>
+          <br></br>
+          <div className="AsideBarAppliedJobs" id="Contact" onClick={this.handleclick}>Contact</div>
 
          <br></br>
           <div>Account</div>

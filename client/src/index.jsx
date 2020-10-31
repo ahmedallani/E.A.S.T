@@ -8,14 +8,19 @@ import Footer from "./components/footer.jsx"
 import JobsPosted from "./components/client/jobsposted.jsx"
 import Jobsapplied from "./components/serviceprovider/Jobsapplied.jsx"
 import PostJob from "./components/client/postjob.jsx"
-import Signup from "./components/Signup.jsx"
-import Login from "./components/login.jsx"
+import ClientSignup from "./components/client/clientSignup.jsx"
+import FreelancerSignup from "./components/serviceprovider/freelancerSignup.jsx"
+import ClientLogin from "./components/client/clientLogin.jsx"
+import FreelancerLogin from "./components/serviceprovider/freelancerlogin.jsx"
 import About from "./components/about.jsx"
 import ProfileSP from "./components/serviceprovider/serviceProviderprofil/serviceproviderprofil.jsx"
 import ClientProfile from "./components/client/clientprofile/clientprofil.jsx"
 import JobDetails from "./components/jobdetails.jsx"
-
-
+import EditClientProfile from "./components/client/clientprofile/editClientProfile.jsx"
+import SeeAppliers from "./components/client/seeappliers.jsx"
+import Contact from "./components/contact.jsx"
+import Admin from "./components/Admin/Admin.jsx"
+import AdminLogin from "./components/Admin/AdminLogin.jsx"
               ////Redux///
 import {Provider} from "react-redux"
 import {createStore} from "redux"
@@ -36,8 +41,7 @@ class App extends React.Component {
  this.setState({user})
      }
      
-    ChangePage(pathname){
-      console.log("pathname",pathname)
+    ChangePage(pathname,data,profile,userid){
      if(pathname==="/"){
       this.setState({page:<Home/>})
     }else if(pathname==="/About"){
@@ -45,21 +49,35 @@ class App extends React.Component {
     }else if(pathname==="/profile"){
       this.setState({page:<ClientProfile/>})
     }else if(pathname==="/Profile"){ //UpperCase P
-      this.setState({page:<ProfileSP/>})
+      this.setState({page:<ProfileSP jobDetails={data} selectedprofile={profile} typeuser={this.state.user} userid={userid} ChangePage={this.ChangePage}/>})
     }else if(pathname==="/JobsPosted"){
-      this.setState({page:<JobsPosted/>})
+      this.setState({page:<JobsPosted ChangePage={this.ChangePage}/>})
     }else if(pathname==="/Jobsapplied"){
       this.setState({page:<Jobsapplied/>})
     }else if(pathname==="/PostJob"){
-      this.setState({page:<PostJob/>})
+      this.setState({page:<PostJob ChangePage={this.ChangePage}/>})
     }else if(pathname==="/Market"){
-      this.setState({page:<Market/>})
+      this.setState({page:<Market ChangePage={this.ChangePage}/>})
     }else if(pathname==="/JobDetails"){
-      this.setState({page:<JobDetails/>})
-    }else if(pathname==="/Signup"){
-      this.setState({page:<Signup/>})
-    }else if(pathname==="/Login"){
-      this.setState({page:<Login ChangeUser={this.ChangeUser} ChangePage={this.ChangePage}/>})
+      this.setState({page:<JobDetails jobDetails={data} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/ClientSignup"){
+      this.setState({page:<ClientSignup ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/FreelancerSignup"){
+      this.setState({page:<FreelancerSignup ChangePage={this.ChangePage} />})
+    }else if(pathname==="/ClientLogin"){
+      this.setState({page:<ClientLogin ChangeUser={this.ChangeUser} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/FreelancerLogin"){
+      this.setState({page:<FreelancerLogin ChangeUser={this.ChangeUser} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/profileEdit"){
+      this.setState({page:<EditClientProfile/>})
+    }else if(pathname==="/SeeAppliers"){
+      this.setState({page:<SeeAppliers appliers={data} selectedprofile={profile} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/Contact"){
+      this.setState({page:<Contact appliers={data} selectedprofile={profile} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/Admin"){
+      this.setState({page:<Admin />})
+    }else if(pathname==="/AdminLogin"){
+      this.setState({page:<AdminLogin />})
     }
     }
 
@@ -73,9 +91,8 @@ class App extends React.Component {
       <Navbar routes={this.ChangePage} user={this.state.user}/>
         <aside id="ashade-aside">
          <Asidebar user={this.state.user} routes={this.ChangePage}/>
-         </aside> 
+         </aside>
         {this.state.page}
-        
       </div>
     }
   }
