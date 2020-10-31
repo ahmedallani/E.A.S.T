@@ -57,16 +57,16 @@ router.post("/postJob", (req, res) => {
     }
   });
        /*Retrive Client Posted Job*/
-       router.post("/PostedJob", (req, res) => {
+router.post("/PostedJob", (req, res) => {
         jobs.retriveClientPosts(req.body,(result)=>{
 res.send(result)
         })
         });
 
          /*Check Appliers*/
-     router.post("/appliers", (req, res) => {
-application.RetriveAppliers(req.body,(result=>{
-res.send(result)
+router.post("/appliers", (req, res) => {
+    application.RetriveAppliers(req.body,(result=>{
+    res.send(result)
 }))
         });
 

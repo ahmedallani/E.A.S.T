@@ -51,13 +51,13 @@ const getContactListFreelancer= (req,callback)=>{
   var query=`select FriendsId from Contacts where UsersId=${req.UserId} and UserType="freelancer";`
   
   connection.query(query, function (error, results, fields) {
-     
+     console.log(results,error)
    results.map((elem)=>{
      console.log(elem.FriendsId)
       var query0=`select FirstName,LastName,imgsrc from Clients where id=${elem.FriendsId};`
      return  connection.query(query0, function (error, result, fields) {
          result[0].id=elem.FriendsId
-         result[0].Field="client"
+         result[0].Field="clientnpm "
          reslt.push(result)
      })
       })

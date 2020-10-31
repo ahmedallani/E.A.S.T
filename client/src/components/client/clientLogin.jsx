@@ -6,10 +6,7 @@ class ClientLogin extends React.Component {
         super(props)
         this.state={
             Email:"",
-            Password:"",
-            serviceprovider:true,
-            client:false,
-            Registration:"Login as a service-provider"
+            Password:""
         }
   this.serviceprovider=this.serviceprovider.bind(this)
   this.client=this.client.bind(this)
@@ -30,7 +27,6 @@ class ClientLogin extends React.Component {
                         alert("Check Again")
                     }else{
                         this.props.update(data.data.userData)
-
                         if(data.data.userData.type=="client"){
                         this.props.ChangeUser('client')
                         this.props.ChangePage("/")
@@ -56,7 +52,7 @@ class ClientLogin extends React.Component {
   <div className="logo-image">
   <img src="https://bootdey.com/img/Content/User_for_snippets.png" alt="Logo" title="Logo" width="138" className="loginimg"/>
   </div>
-  <h1 className="display1 logintextcolor">Login</h1>
+  <h1 className="display1 logintextcolor">Client-Login</h1>
  
   <form action="" method="" className="" role="form" onSubmit={this.Login}>
     <div id="form-login-username" className="form-group">

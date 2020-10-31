@@ -60,7 +60,7 @@ class ClientSignup extends React.Component {
   <div className="logo-image">
   <img src="https://bootdey.com/img/Content/User_for_snippets.png" alt="Logo" title="Logo" width="138" className="loginimg"/>
   </div>
-  <h1 className="display1 logintextcolor">Signup</h1>
+  <h1 className="display1 logintextcolor">Client-Signup</h1>
  
   <form action="" method="" className="" role="form" onSubmit={this.handleClick}>
     <div id="form-login-username" className="form-group">

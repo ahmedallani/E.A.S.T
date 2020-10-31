@@ -888,8 +888,8 @@ nav.ashade-nav ul li {
 }
 nav.ashade-nav ul li a {
     transition: color 0.3s;
-    color: rgba(255,255,255,0.5);
-    font-size: 12px;
+	color: rgb(252 239 255);
+    font-size: 14px;
     line-height: 29px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
@@ -2687,7 +2687,7 @@ p.ashade-intro {
     height: 50px;
     color: #808080;
     background: rgba(0,0,0,0);
-    border: 2px solid #313133;
+    border: solid 2px white;
     border-radius: 0;
     padding: 15px 20px 15px 20px;
     margin: 0 0 20px 0;
@@ -2749,7 +2749,7 @@ p.ashade-intro {
     height: 50px;
     color: #808080;
     background: rgba(0,0,0,0);
-    border: 2px solid #313133;
+	border: solid 2pxpx #dde;
     border-radius: 0;
     padding: 15px 20px 15px 20px;
     margin: 0 0 20px 0;
@@ -3002,9 +3002,9 @@ input:checked ~ .modal__overlay {
 	padding: 10%;
 	text-align: center;
 	position: relative;
-	top: 100px;
+	top: 40px;
 	height: 100px;
-	font-size: 50px;
+	font-size: 42px;
 }
 @media screen and (max-width: 600px) {
 	#AsideBar{
@@ -3012,7 +3012,7 @@ input:checked ~ .modal__overlay {
 		padding: 0%;
 		text-align: center;
 		position: relative;
-		top: 130px;
+		top: 40px;
 		height: 100px;
 	}
   }
@@ -3029,7 +3029,8 @@ input:checked ~ .modal__overlay {
 	font-size: 50px;
 }
 #imgdet{
-	height: 155px;
+    width: 135px;
+    height: 135px;
 }
 .blacktext{
 	color:black
@@ -4194,3 +4195,10 @@ div.portfoliocard div.follow_count{
 	font-family: "Times New Roman", Times, serif;
 }
 /* /////////////////////////// */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: white;
+  }
+  .jobdetailfont{
+	font-size: 20px;
+    color: #ffffffcf;
+  }

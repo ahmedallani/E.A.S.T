@@ -66,10 +66,6 @@ class Admin extends React.Component {
   </section>
 
 </main>
-
-   
-
-   
     
       </div>
     }

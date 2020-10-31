@@ -23,6 +23,9 @@ class JobDetails extends React.Component {
       url: '/api/offers/deletepost',
       method: 'post',
       data:{postid:this.props.jobDetails.id}
+    }).then(()=>{
+      this.props.ChangePage("/JobsPosted")
+    window.history.pushState({},null,"/offers/PostedJobs")
     })
 }
 checkprofile(e){
@@ -95,20 +98,34 @@ this.setState({apllication:true})
 					</div>
                     
       </div>
-    <cite id="detailcite">{this.state.PosterData.FirstName}-{this.state.PosterData.LastName}</cite>
+    {/* <cite id="detailcite">{this.state.PosterData.FirstName}-{this.state.PosterData.LastName}</cite> */}
 <div className="ashade-page-title-wrap">
         <h1 className="ashade-page-title">
             <span>don't miss this opportunity</span>
             it came once
         </h1>
     </div>
-         <div className="ashade-col col-4" id="DetailJobTitle">
+         {/* <div className="ashade-col col-4" id="DetailJobTitle">
 				<h2>
 					<span>{this.props.jobDetails.fields}</span>
 						{this.props.jobDetails.jobTitle}
 				</h2>
-		</div>
-
+		</div> */}
+    <section className="ashade-section" id="DetailJobdescription">
+					<div className="ashade-row">
+						<div className="ashade-col col-4">
+							<h2>
+								<span>Job</span>
+								 Title
+							</h2>
+						</div>
+						<div className="ashade-col col-8" id="borderdetail">
+							<p className="is-dropcap jobdetailfont">
+							{this.props.jobDetails.jobTitle}
+							</p>
+						</div>
+					</div>
+				</section>
       <section className="ashade-section" id="DetailJobdescription">
 					<div className="ashade-row">
 						<div className="ashade-col col-4">
@@ -118,7 +135,7 @@ this.setState({apllication:true})
 							</h2>
 						</div>
 						<div className="ashade-col col-8" id="borderdetail">
-							<p className="is-dropcap">
+							<p className="is-dropcap jobdetailfont">
 							{this.props.jobDetails.jobDescription}
 							</p>
 						</div>

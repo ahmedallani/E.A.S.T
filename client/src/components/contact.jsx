@@ -70,6 +70,7 @@ componentWillUnmount(){
 clearInterval(this.state.fetchdata)
     }
 componentDidMount(){
+  console.log(this.props)
   if(this.props.user.type=="client"){
     setTimeout(()=>{
       axios({

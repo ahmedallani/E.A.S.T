@@ -21,12 +21,14 @@ app.use('/api/offers', offersRouter);
 app.use('/api/contact',contactRouter);
 app.use('/api/users',UsersRouter);
 app.use('/api/Admin',AdminRouter);
+
         /*Server Connection*/
 
 app.get("*",(req,res)=>{
      res.sendFile(__dirname +"/client/dist/index.html")
    })        
-   
+  
+
 app.listen(PORT, function(err){ 
     if (err) console.log(err); 
     console.log("Server listening on PORT", PORT); 

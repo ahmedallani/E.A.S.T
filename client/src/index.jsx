@@ -19,6 +19,8 @@ import JobDetails from "./components/jobdetails.jsx"
 import EditClientProfile from "./components/client/clientprofile/editClientProfile.jsx"
 import SeeAppliers from "./components/client/seeappliers.jsx"
 import Contact from "./components/contact.jsx"
+import Admin from "./components/Admin/Admin.jsx"
+import AdminLogin from "./components/Admin/AdminLogin.jsx"
               ////Redux///
 import {Provider} from "react-redux"
 import {createStore} from "redux"
@@ -72,6 +74,10 @@ class App extends React.Component {
       this.setState({page:<SeeAppliers appliers={data} selectedprofile={profile} ChangePage={this.ChangePage}/>})
     }else if(pathname==="/Contact"){
       this.setState({page:<Contact appliers={data} selectedprofile={profile} ChangePage={this.ChangePage}/>})
+    }else if(pathname==="/Admin"){
+      this.setState({page:<Admin />})
+    }else if(pathname==="/AdminLogin"){
+      this.setState({page:<AdminLogin />})
     }
     }
 
@@ -85,9 +91,8 @@ class App extends React.Component {
       <Navbar routes={this.ChangePage} user={this.state.user}/>
         <aside id="ashade-aside">
          <Asidebar user={this.state.user} routes={this.ChangePage}/>
-         </aside> 
+         </aside>
         {this.state.page}
-        
       </div>
     }
   }
